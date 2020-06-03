@@ -1,1 +1,28 @@
-<h1>Flashing Daniele</h1>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qr Page Encoder</title>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="center">
+        <h1>Qr Page Encoder</h1>
+        <div id="ed">
+            <h2>HTML EDITOR</h2>
+            <textarea autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" autofocus name="code" id="editor" cols="80" rows="20">&lt;h1&gt;Hello, World!&lt;/h1&gt;</textarea>
+        </div>
+        <div id="result">
+            <h2>RESULT</h2>
+            <iframe style="background: #FFFFFF;" src="data:text/html;base64,PGgxPkhlbGxvLCBXb3JsZCE8L2gxPg==" id="out" frameborder="0" height="400"></iframe>
+        </div>
+        <div style="text-align: center;">
+            <h2>SHAREABLE URL</h2>
+            <input type="text" name="" id="url-result" readonly size="70">
+            <button id="copy" onclick="copyText()"><span style="font-size:1vw;">COPY</span></button>
+        </div>
+    </div>
+</body>
+<script src="encode.js"></script>
+</html>
