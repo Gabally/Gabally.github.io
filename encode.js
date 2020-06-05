@@ -4,7 +4,9 @@ old = old.split("+").join("~");
 old = old.split("=").join("|");
 old = old.split("/").join("_");
 document.getElementById("url-result").value = "https://" + window.location.hostname + "?p=" + old;
-new QRCode(document.getElementById("qrcode"), ("https://" + window.location.hostname + "?p=" + old));
+var qrcode = new QRCode("qrcode");
+qrcode.makeCode(("https://" + window.location.hostname + "?p=" + old));
+document.getElementById("qrcode").style = "";
 
 function update_iframe(){
     var html = document.getElementById("editor").value;
@@ -18,6 +20,8 @@ function update_iframe(){
     if (old != html){
         framed.src = "data:text/html;base64," + btoa(tmp);
         shurl.value = "https://" + window.location.hostname + "?p=" + html;
+        qrcode.makeCode(("https://" + window.location.hostname + "?p=" + html));
+        document.getElementById("qrcode").style = "";
     }
     old = html
 }
@@ -28,7 +32,6 @@ function copyText() {
     document.execCommand("copy");
     alert("Copied to the clipboard");
 }
-
 
 var urlParams = new URLSearchParams(window.location.search);
 var PageData = urlParams.get('p');
