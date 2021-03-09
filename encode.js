@@ -7,6 +7,7 @@ document.getElementById("url-result").value = "https://" + window.location.hostn
 var qrcode = new QRCode("qrcode");
 qrcode.makeCode(("https://" + window.location.hostname + "?p=" + old));
 document.getElementById("qrcode").style = "";
+document.getElementById("qrcode").download = "qrcode.png";
 
 function update_iframe(){
     var html = document.getElementById("editor").value;
@@ -22,6 +23,7 @@ function update_iframe(){
         shurl.value = "https://" + window.location.hostname + "?p=" + html;
         qrcode.makeCode(("https://" + window.location.hostname + "?p=" + html));
         document.getElementById("qrcode").style = "";
+        document.getElementById("qrcode").download = "qrcode.png";
     }
     old = html
 }
