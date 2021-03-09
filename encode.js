@@ -57,3 +57,16 @@ if (PageData == null){
     PageData = PageData.split("_").join("/");
     x.src = "data:text/html;base64," + PageData;
 }
+
+
+document.getElementById("copy").addEventListener("click", ()=>{
+    copyText();
+});
+
+document.getElementById("qrdownload").addEventListener("click", ()=>{
+    let img = document.querySelector("img").src;
+    let link = document.createElement("a");
+    link.href = img;
+    link.setAttribute("download", "qr.png");
+    link.click();
+});
